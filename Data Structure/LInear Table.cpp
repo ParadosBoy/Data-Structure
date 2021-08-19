@@ -116,11 +116,11 @@ int main()
 	L.data = new ElemType[InitSize];
 }
 
-int Delete(SqList &L, ElemType x) {
+int Delete_Mini(SqList &L, ElemType x) {
 	if (L.length == 0) return false;
 	int pos;
 	L.data[pos]= L.data[0];
-	for (int i = 0; i < L.length-1; i++)
+	for (int i = 1; i < L.length-1; i++)
 	{
 		if (L.data[i] < L.data[pos])
 			pos = i;
@@ -141,3 +141,18 @@ void Reverse(SqList& L) {
 		L.data[L.length - 1 - i] = temp;
 	}
 }//P17应用题2
+
+void Delete_X(SqList L, ElemType x) {
+	ElemType k=0;
+	for (int i = 0; i < L.length; i++)
+	{
+		if (L.data[i] == x) {
+			k++;
+		}
+		else
+		{
+			L.data[i - k] = L.data[i];
+		}
+	}
+	L.length -= k;
+}//P17应用题3
