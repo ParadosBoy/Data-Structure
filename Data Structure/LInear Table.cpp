@@ -110,9 +110,23 @@ LNode* LocateElem(LinkList L, ElemType e) {
 	return p;
 }//按值查找
 
-
 int main()
 {
 	SeList L;
 	L.data = new ElemType[InitSize];
 }
+
+bool Delete(SqList L, ElemType x) {
+	if (L.length == 0) return false;
+	int pos;
+	L.data[pos]= L.data[0];
+	for (int i = 0; i < L.length; i++)
+	{
+		if (L.data[i] < L.data[pos])
+			pos = i;
+	}
+	cout << L.data[pos];
+	L.data[pos] = L.data[MaxSize - 1];
+	L.length - 1;
+	return true;
+}//P17应用题1
