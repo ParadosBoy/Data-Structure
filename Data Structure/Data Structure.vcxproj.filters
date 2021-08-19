@@ -18,5 +18,11 @@
     <ClCompile Include="LInear Table.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
