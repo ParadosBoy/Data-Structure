@@ -84,7 +84,7 @@ LinkList List_TailInsert(LinkList& L) {
 };//尾插法
 
 LNode* GetElem(LinkList L, int i) {
-	int j;
+	int j = 0;
 	LNode* p = L->next;
 	if (i == 0)
 	{
@@ -92,7 +92,7 @@ LNode* GetElem(LinkList L, int i) {
 	}
 	if (i < 1)
 	{
-		return false;
+		return L;
 	}
 	while (p && j < i)
 	{
@@ -111,15 +111,9 @@ LNode* LocateElem(LinkList L, ElemType e) {
 	return p;
 }//按值查找
 
-int main()
-{
-	SeList L;
-	L.data = new ElemType[InitSize];
-}
-
-int Delete_Mini(SqList &L, ElemType x) {
+int Delete_Mini(SqList& L, ElemType x) {
 	if (L.length == 0) return false;
-	int pos;
+	int pos = 0;
 	L.data[pos]= L.data[0];
 	for (int i = 1; i < L.length; i++)
 	{
@@ -128,7 +122,7 @@ int Delete_Mini(SqList &L, ElemType x) {
 	}
 	cout << L.data[pos];
 	L.data[pos] = L.data[L.length - 1];
-	L.length - 1;
+	L.length -= 1;
 	return true;
 }//P17应用题1
 
@@ -143,7 +137,7 @@ void Reverse(SqList& L) {
 	}
 }//P17应用题2
 
-void Delete_X(SqList L, ElemType x) {
+void Delete_X(SqList& L, ElemType x) {
 	ElemType k=0;
 	for (int i = 0; i < L.length; i++)
 	{
@@ -158,7 +152,7 @@ void Delete_X(SqList L, ElemType x) {
 	L.length -= k;
 }//P17应用题3
 
-bool Delete_range1(SqList L, ElemType s, ElemType t) {
+bool Delete_range1(SqList& L, ElemType s, ElemType t) {
 	int k = 0;
 	if (s >= t&&L.length==0) return false;
 	
@@ -174,7 +168,7 @@ bool Delete_range1(SqList L, ElemType s, ElemType t) {
 	}
 }//P17应用题4
 
-bool Delete_range2(SqList L, ElemType s, ElemType t) {
+bool Delete_range2(SqList& L, ElemType s, ElemType t) {
 	int k = 0;
 	if (s >= t && L.length == 0) return false;
 
@@ -188,6 +182,26 @@ bool Delete_range2(SqList L, ElemType s, ElemType t) {
 		{
 			L.data[i - k] = L.data[i];
 		}
+	}
 		L.length -= k;
 		return true;
 }//P17应用题5
+
+bool Delete_same(SqList& L) {
+	int k = 0;
+	if (L.length == 0) return false;
+	for (int i = 0; i < L.length-1; i++)
+	{
+		if (L.data[i] == L.data[i + 1]) 
+		{
+			k++;
+		}
+		else
+		{
+			L.data[i - k] = L.data[i];
+		}
+	}
+	L.length -= k;
+	return true;
+}//P17应用题6
+

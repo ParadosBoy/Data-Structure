@@ -54,8 +54,4 @@ typedef struct LinkNode {
 	struct Linknode* next;
 }*LiStack;//Á´Ê½´æ´¢½á¹¹
 
-int main()
-{
-
-}
 

@@ -45,7 +45,7 @@ bool DeQueue(SqQueue& Q, ElemType x) {
     return true;
 }//出队
 
-typedef struct {
+typedef struct LinkNode{
     ElemType data;
     struct LinkNode* next;
 }LinkNode;
@@ -92,9 +92,5 @@ bool DeQueue(LinkQueue& Q, ElemType& x) {
     free(p);
     return true;
 }//出队
-int main()
-{
-    std::cout << "Hello World!\n";
-}
 
 
