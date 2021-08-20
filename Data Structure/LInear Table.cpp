@@ -1,6 +1,7 @@
 #include <iostream>
 #include<stdio.h>
 #include<string.h>
+#include "LInear Table.h"
 using namespace std;
 #define MaxSize 50
 typedef int ElemType;
@@ -120,13 +121,13 @@ int Delete_Mini(SqList &L, ElemType x) {
 	if (L.length == 0) return false;
 	int pos;
 	L.data[pos]= L.data[0];
-	for (int i = 1; i < L.length-1; i++)
+	for (int i = 1; i < L.length; i++)
 	{
 		if (L.data[i] < L.data[pos])
 			pos = i;
 	}
 	cout << L.data[pos];
-	L.data[pos] = L.data[MaxSize - 1];
+	L.data[pos] = L.data[L.length - 1];
 	L.length - 1;
 	return true;
 }//P17应用题1
@@ -156,3 +157,37 @@ void Delete_X(SqList L, ElemType x) {
 	}
 	L.length -= k;
 }//P17应用题3
+
+bool Delete_range1(SqList L, ElemType s, ElemType t) {
+	int k = 0;
+	if (s >= t&&L.length==0) return false;
+	
+	for (int i = 0; i < L.length&&L.data[i]<t; i++)
+	{
+		if (L.data[i] > s && L.data[i] < t)
+		{
+			k++;
+		}
+		L.data[i - k] = L.data[i];
+		L.length -= k;
+		return true;
+	}
+}//P17应用题4
+
+bool Delete_range2(SqList L, ElemType s, ElemType t) {
+	int k = 0;
+	if (s >= t && L.length == 0) return false;
+
+	for (int i = 0; i < L.length; i++)
+	{
+		if (L.data[i] > s && L.data[i] < t)
+		{
+			k++;
+		}
+		else
+		{
+			L.data[i - k] = L.data[i];
+		}
+		L.length -= k;
+		return true;
+}//P17应用题5
