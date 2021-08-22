@@ -283,7 +283,7 @@ bool Exchange_or_Insert(SqList& L, ElemType x) {
 
 }//P17应用题9
 
-bool Delete_x2(LinkList& L, ElemType x) {
+bool Delete_X2(LinkList& L, ElemType x) {
 	LNode* p;
 	if (L == NULL) return;
 	if (p->data == x)
@@ -300,3 +300,23 @@ bool Delete_x2(LinkList& L, ElemType x) {
 
 }//P37应用题1
 
+bool Delete_X3(LinkList& L, ElemType x) {
+	LNode* p, * q, * pre;
+	q = L->next;
+	pre = L;
+	while (q!=NULL)
+	{
+		if (q->data==x)
+		{
+			p = q;
+			q = q->next;
+			pre->next = q;
+			free(p);
+		}
+		else
+		{
+			pre->next = q;
+			q = q->next;
+		}
+	}
+}//P38应用题2
