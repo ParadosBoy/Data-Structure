@@ -337,7 +337,7 @@ void Outprint(LinkList L) {
 	}
 }//P38应用题3
 
-void Delete_Mini(LinkList& L) {
+LinkList Delete_Mini(LinkList& L) {
 	LNode* p, * min, * pre, * minp;
 	pre = L->next;
 	p = pre->next;
@@ -355,4 +355,19 @@ void Delete_Mini(LinkList& L) {
 	}
 	minp->next = min->next;
 	free(min);
+	return L;
 }//P39应用题4
+
+LinkList ReverseLink(LinkList& L) {
+	LNode* p, * r;
+	p = L->next;
+	L->next = NULL;
+	while (p!=NULL)
+	{
+		r = p->next;
+		p->next = NULL;
+		L->next = p;
+		p = r;
+	}
+	return L;
+}//P39应用题5
