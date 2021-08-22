@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include "LInear Table.h"
+#include"Stack.cpp"
 using namespace std;
 #define MaxSize 50
 typedef int ElemType;
@@ -291,11 +292,11 @@ bool Delete_X2(LinkList& L, ElemType x) {
 		p = L;
 		L = L->next;
 		free(p);
-		Delete_x2(L, x);
+		Delete_X2(L, x);
 	}
 	else
 	{
-		Delete_x2(L->next, x);
+		Delete_X2(L->next, x);
 	}
 
 }//P37应用题1
@@ -320,3 +321,38 @@ bool Delete_X3(LinkList& L, ElemType x) {
 		}
 	}
 }//P38应用题2
+
+void Outprint(LinkList L) {
+	ElemType x;
+	Sqstack S;
+	while (L->next=NULL)
+	{
+		x = L->data;
+		Push(S, x);
+		L = L->next;
+	}
+	while (S.top!=-1)
+	{
+		Pop(S, x);
+	}
+}//P38应用题3
+
+void Delete_Mini(LinkList& L) {
+	LNode* p, * min, * pre, * minp;
+	pre = L->next;
+	p = pre->next;
+	min = L->next;
+	minp = pre;
+	while (p!=NULL)
+	{
+		if (p->data < min->data)
+		{
+			minp = pre;
+			min = p;
+		}
+		pre = p;
+		p = p->next;
+	}
+	minp->next = min->next;
+	free(min);
+}//P39应用题4
