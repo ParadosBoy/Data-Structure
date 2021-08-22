@@ -49,7 +49,7 @@ int LocateElem(SqList L, ElemType e) {
 typedef struct LNode {
 	ElemType data;
 	struct LNode* next;
-}LNode, * LinkList;
+}LNode, * LinkList;//链式存储结构
 
 LinkList List_HeadInsert(LinkList& L) {
 	LNode* s; int x;
@@ -239,6 +239,23 @@ SqList Combine(SqList& L1, SqList& L2) {
 		return c;
 }//P17应用题7
 
+void Reverse(int a[], int left, int right) {
+	if (left >= right) return;
+	int mid = (left + right) / 2,temp=0;
+	
+	for (int i = 0; i < mid - left; i++)
+	{
+		temp = a[left+i];
+		a[left+i] = a[right-i];
+		a[right-i] = temp;
+	}
+}
+void Exchange(int a[], int n, int m) {
+	Reverse(a, 0, n+m - 1);
+	Reverse(a, 0, n - 1);
+	Reverse(a, n, m - 1);
+}//P17应用题8
+
 bool Exchange_or_Insert(SqList& L, ElemType x) {
 	int low = 0, mid = 0, high = 0;
 	high = L.length - 1;
@@ -265,3 +282,21 @@ bool Exchange_or_Insert(SqList& L, ElemType x) {
 	L.data[high] = x;
 
 }//P17应用题9
+
+bool Delete_x2(LinkList& L, ElemType x) {
+	LNode* p;
+	if (L == NULL) return;
+	if (p->data == x)
+	{
+		p = L;
+		L = L->next;
+		free(p);
+		Delete_x2(L, x);
+	}
+	else
+	{
+		Delete_x2(L->next, x);
+	}
+
+}//P37应用题1
+
