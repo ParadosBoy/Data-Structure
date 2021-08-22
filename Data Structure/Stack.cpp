@@ -53,5 +53,3 @@ typedef struct LinkNode {
 	ElemType data;
 	struct Linknode* next;
 }*LiStack;//Á´Ê½´æ´¢½á¹¹
-
-

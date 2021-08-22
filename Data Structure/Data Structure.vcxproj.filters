@@ -24,10 +24,8 @@
     <ClCompile Include="Queue.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="LInear Table.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="String.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
