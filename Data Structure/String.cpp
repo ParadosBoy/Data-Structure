@@ -33,4 +33,4 @@ int Index(SString S, SString T) {
 		return false;
 	else
 		return 0;
-}
+}//¼òµ¥Ä£Ê½Æ¥Åä
