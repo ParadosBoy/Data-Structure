@@ -92,6 +92,45 @@ int Concat(HString& S, HString S1, HString S2) {
 	return 1;
 }//串连接
 
+int Substring(HString &S, HString sub, int pos, int len) {
+	if (pos < 0 || pos >= S.length || len<0 || len>S.length - pos)
+		return 0;
+	if (sub.ch)
+	{
+		free(sub.ch);
+		sub.ch = NULL;
+	}
+	if (len==0)
+	{
+		sub.ch = NULL;
+		sub.length = 0;
+		return 1;
+	}
+	else
+	{
+		sub.ch = (char*)malloc(sizeof(char) * (len + 1));
+		int i = pos;
+		int j = 0;
+		while (i<pos+len)
+		{
+			sub.ch[j++] = S.ch[i++];
+		}
+		sub.ch[j] = '\0';
+		sub.length = len;
+		return 1;
+	}
+}//求子串
+
+int ClearString(HString& S) {
+	if (S.ch)
+	{
+		free(S.ch);
+		S.ch = NULL;
+	}
+	S.length = 0;
+	return 1;
+}//清空串
+
 int Index(SString S, SString T) {
 	int i = 1, j = 1, k = 2;
 	while (i<=S.length&&j<=T.length)
