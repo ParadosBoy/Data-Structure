@@ -364,9 +364,36 @@ LinkList ReverseLink(LinkList& L) {
 	while (p!=NULL)
 	{
 		r = p->next;
-		p->next = NULL;
+		p->next = L->next;
 		L->next = p;
 		p = r;
 	}
 	return L;
 }//P39应用题5
+
+LinkList OrderLink(LinkList& L) {
+	LNode* p, * max, * pre, * maxp, * r;
+	pre = L->next;
+	p = pre->next;
+	maxp = L->next;
+	max = pre;
+	L->next = NULL;
+	while (p != NULL)
+	{
+		if (p->data > max->data)
+		{
+			maxp = pre;
+			max = p;
+		}
+		pre = p;
+		p = p->next;
+	}
+	maxp->next = max->next;
+	while (max!=NULL)
+	{
+		max->next = L->next;
+		L->next = max;
+	}
+	return L;
+}//P38应用题6
+
