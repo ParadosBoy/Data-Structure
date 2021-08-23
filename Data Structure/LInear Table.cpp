@@ -397,3 +397,24 @@ LinkList OrderLink(LinkList& L) {
 	return L;
 }//P38应用题6
 
+void Delete_Range(LinkList& L, int min, int max) {
+	LNode* p, * pre, * x;
+	pre = L;
+	p = pre->next;
+	while (p!=NULL)
+	{
+		if (p->data>min&&p->data<max)
+		{
+			x = p;
+			p = p->next;
+			pre->next = p;
+			free(x);
+		}
+		else
+		{
+			p = p->next;
+			pre->next = p;
+		}
+	}
+}//P38应用题7
+
