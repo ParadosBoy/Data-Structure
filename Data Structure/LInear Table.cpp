@@ -338,9 +338,9 @@ void Outprint(LinkList L) {
 
 LinkList Delete_Mini(LinkList& L) {
 	LNode* p, * min, * pre, * minp;
-	pre = L->next;
+	pre = L;
 	p = pre->next;
-	min = L->next;
+	min = p;
 	minp = pre;
 	while (p!=NULL)
 	{
@@ -418,3 +418,78 @@ void Delete_Range(LinkList& L, int min, int max) {
 	}
 }//P38应用题7
 
+LinkList Find_Together(LinkList& L1, LinkList& c, LinkList& L2) {
+	LNode* p, * q;
+	c->next = NULL;
+	p = L1->next;
+	q = L2->next;
+	while (p!=NULL&&q!=NULL)
+	{
+		for (p;p!=NULL; p=p->next)
+		{
+			for (q; q!=NULL; q=q->next)
+			{
+				if (p==q)
+				{
+					c->next = q;
+				}
+			}
+			
+		}
+	}
+	return c;
+}//P38应用题8
+
+void FindMin(LinkList& head) {
+	LNode* p, * pre, * min, * minp;
+	pre = head;
+	p = pre->next;
+	min = p;
+	minp = pre;
+	if (head->next != NULL)
+	{
+		while (p!=NULL)
+			{
+				if (p->data<min->data)
+				{
+					min = p;
+					minp = pre;
+				}
+				p = p->next;
+				pre->next = p;
+			}
+			minp->next = min->next;
+			cout << min->data;
+			free(min);
+			FindMin(head);
+	}
+	free(head);
+}//P38应用题9
+
+LinkList DivisionLink(LinkList& L) {
+	LinkList L1,L2;
+	LNode* p, * q, * s;
+	s = L->next;
+	p = L1;
+	q = L2;
+	int k = 0;
+	while (s!=NULL)
+	{
+		if (k%2==1)
+		{
+			p->next = s;
+			p = s;
+		}
+		else
+		{
+			q->next = s;
+			q = s;
+		}
+		s = s->next;
+		k++;
+	}
+	p->next = NULL;
+	q->next = NULL;
+	free(L);
+	return L1, L2;
+}//P38应用题10
