@@ -92,5 +92,3 @@ bool DeQueue(LinkQueue& Q, ElemType& x) {
     free(p);
     return true;
 }//³ö¶Ó
-
-
