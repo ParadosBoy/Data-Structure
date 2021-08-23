@@ -10,6 +10,12 @@ typedef struct BiTNode {
 	struct BiTNode* lchild, * rchild;
 }BiTNode,*BiTree;
 
+typedef struct ThreadNode {
+	ElemType data;
+	struct ThreadNode* lchild, * rchild;
+	int ltag, rtag;
+}ThreadNode,* ThreadTree;
+
 ElemType Visit(BiTree T) {
 	return T->data;
 }
@@ -97,3 +103,4 @@ void LevelOrder(BiTree T) {
 		}
 	}
 }//²ãĞò±éÀú
+
