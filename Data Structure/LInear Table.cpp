@@ -539,3 +539,43 @@ void DeleteSame(LinkList& L) {
 		}
 	}
 }//P38应用题12
+
+void OrderTogethert(LinkList L1, LinkList L2) {
+	LinkList c = (LinkList)malloc(sizeof(LNode));
+	LNode* p, * q, * s;
+	p = L1->next;
+	q = L2->next;
+	while (p!=NULL&&q!=NULL)
+	{
+		if (p->data<q->data)
+		{
+			s = p->next;
+			p->next = c->next;
+			c->next = p;
+			p = s;
+		}
+		else
+		{
+			s = q->next;
+			q->next = c->next;
+			c->next = q;
+			q = s;
+		}
+	}
+	while (p == NULL && q != NULL)
+	{
+		s = q->next ;
+		q->next=c->next;
+		c->next = q;
+		q = s;
+	}
+	while (p != NULL && q == NULL)
+	{
+		s = p->next;
+		p->next = c->next;
+		c->next = p;
+		p = s;
+	}
+	free(L1);
+	free(L2);
+}//P38应用题13
