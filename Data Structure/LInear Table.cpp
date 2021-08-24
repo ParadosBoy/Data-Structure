@@ -540,7 +540,7 @@ void DeleteSame(LinkList& L) {
 	}
 }//P38应用题12
 
-void OrderTogethert(LinkList L1, LinkList L2) {
+void OrderTogether(LinkList L1, LinkList L2) {
 	LinkList c = (LinkList)malloc(sizeof(LNode));
 	LNode* p, * q, * s;
 	p = L1->next;
@@ -579,3 +579,30 @@ void OrderTogethert(LinkList L1, LinkList L2) {
 	free(L1);
 	free(L2);
 }//P38应用题13
+
+void NewTogether(LinkList A, LinkList B) {
+	LinkList C = (LinkList)malloc(sizeof(LNode));
+	LNode* q, * p, * s;
+	p = A->next;
+	q = B->next;
+	while (p != NULL && q != NULL)
+	{
+		if (p->data<q->data)
+		{
+			p = p->next;
+		}
+		else if (q->data<p->data)
+		{
+			q = q->next;
+		}
+		else
+		{
+			s = (LNode*)malloc(sizeof(LNode));
+			s->data = p->data;
+			s->next = C->next;
+			C->next = s;
+			p = p->next;
+			q = q->next;
+		}
+	}
+}//P38应用题14
