@@ -606,3 +606,45 @@ void NewTogether(LinkList A, LinkList B) {
 		}
 	}
 }//P38应用题14
+
+LinkList Together(LinkList& A, LinkList& B) {
+	LNode* p = A->next, * q = B->next, * r = A->next, * s;
+	while (p!=NULL&&q!=NULL)
+	{
+		if (p->data == q->data)
+		{
+			s = q->next;
+			r->next = p;
+			r = p;
+			p = p->next;
+			q = q->next;
+			free(s);
+		}
+		else if (p->data < q->data)
+		{
+			s = p;
+			p = p->next;
+			free(s);
+		}
+		else
+		{
+			s = q;
+			q = q->next;
+			free(s);
+		}
+	}
+	while (q!=NULL)
+	{
+		s = q;
+		q = q->next;
+		free(s);
+	}
+	while (p!=NULL)
+	{
+		s = p;
+		p = p->next;
+		free(s);
+	}
+	r->next = NULL;
+	free(B);
+}//P38应用题15
