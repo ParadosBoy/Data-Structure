@@ -467,7 +467,8 @@ void FindMin(LinkList& head) {
 }//P38应用题9
 
 LinkList DivisionLink(LinkList& L) {
-	LinkList L1,L2;
+	LinkList L1 = (LinkList)malloc(sizeof(LNode));;
+	LinkList L2 = (LinkList)malloc(sizeof(LNode));
 	LNode* p, * q, * s;
 	s = L->next;
 	p = L1;
@@ -493,3 +494,27 @@ LinkList DivisionLink(LinkList& L) {
 	free(L);
 	return L1, L2;
 }//P38应用题10
+
+LinkList DivisionLink2(LinkList& A) {
+	LinkList B = (LinkList)malloc(sizeof(LNode));
+	LNode* p, * q, * r;
+	r = A->next;
+	p = A;
+	ElemType k = 0;
+	while (r!=NULL)
+	{
+		if (k%2==0)
+		{
+			p->next = r;
+			p = r;
+		}
+		else
+		{
+			q = r;
+			q->next = B->next;
+			B->next = q;
+		}
+		r = r->next;
+		k++;
+	}
+}//P38应用题11
