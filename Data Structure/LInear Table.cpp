@@ -518,3 +518,24 @@ LinkList DivisionLink2(LinkList& A) {
 		k++;
 	}
 }//P38应用题11
+
+void DeleteSame(LinkList& L) {
+	LNode* p, * pre, * r;
+	p = L->next;
+	pre = L;
+	while (p!=NULL)
+	{
+		if (p->data=p->next->data)
+		{
+			r = p;
+			p = p->next;
+			free(r);
+		}
+		else
+		{
+			pre->next = p;
+			pre = p;
+			p = p->next;
+		}
+	}
+}//P38应用题12
