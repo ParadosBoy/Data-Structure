@@ -648,3 +648,31 @@ LinkList Together(LinkList& A, LinkList& B) {
 	r->next = NULL;
 	free(B);
 }//P38应用题15
+
+bool IsSubLink(LinkList A, LinkList B) {
+	LNode* p = A->next, * q = B->next, * r = A->next;
+	while (p!=NULL&&q!=NULL)
+	{
+		if (p->data == q->data) 
+		{
+			p = p->next;
+			q = q->next;
+		}
+		else
+		{
+			r = r->next;
+			p = r;
+			q = B->next;
+		}
+		
+	}
+	if (q == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;	
+	}
+	
+}//P38应用题16
