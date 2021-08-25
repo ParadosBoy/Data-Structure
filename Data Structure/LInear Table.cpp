@@ -713,3 +713,29 @@ void LinkedLink(LinkList& L1, LinkList& L2) {
 	q->next = L1;
 }//P38应用题18
 
+void Free_Mini(LinkList& L) {
+	LNode* p, * min, * minp, * pre;
+	while (L->next!=L)
+	{
+		p = L->next;
+		pre = L;
+		min = p;
+		minp = pre;
+		while (p != L)
+		{
+			if (p->data < min->data)
+			{
+				pre = minp;
+				min = p;
+			}
+			pre = p;
+			p = p->next;
+		}
+		minp->next = min->next;
+		cout << min->data;
+		free(min);
+	}
+		
+	free(L);
+}//P38应用题19
+
