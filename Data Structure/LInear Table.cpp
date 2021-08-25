@@ -676,3 +676,21 @@ bool IsSubLink(LinkList A, LinkList B) {
 	}
 	
 }//P38应用题16
+
+bool IsSame(LinkList L) {
+
+}//P38应用题17
+
+void LinkedLink(LinkList& L1, LinkList& L2) {
+	LNode* p = L1, * q = L2;
+	while (p->next!=L1)
+	{
+		p = p->next;
+	}
+	while (q->next!=L2)
+	{
+		q = q->next;
+	}
+	p->next = L2;
+	q->next = L1;
+}//P38应用题18
