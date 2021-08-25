@@ -16,6 +16,11 @@ typedef struct {
 	int MaxSize1, length;
 }SeList;//动态分配
 
+typedef struct DNode {
+	ElemType data;
+	struct DNode* prior, * next;
+}DNode,*DLinklist;
+
 bool ListInsert(SqList& L, int i, ElemType e) {
 	if (i<1 || i>L.length + 1)
 		return false;
@@ -677,8 +682,21 @@ bool IsSubLink(LinkList A, LinkList B) {
 	
 }//P38应用题16
 
-bool IsSame(LinkList L) {
-
+bool IsSame(DLinklist L) {
+	DNode* q = L->next, * r = L->prior;
+	while (q != r && r->next != q)
+	{
+		if (q->data==r->data)
+		{
+			q = q->next;
+			r = r->prior;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	return true;
 }//P38应用题17
 
 void LinkedLink(LinkList& L1, LinkList& L2) {
@@ -694,3 +712,4 @@ void LinkedLink(LinkList& L1, LinkList& L2) {
 	p->next = L2;
 	q->next = L1;
 }//P38应用题18
+
