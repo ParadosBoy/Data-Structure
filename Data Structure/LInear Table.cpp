@@ -18,7 +18,7 @@ typedef struct {
 
 typedef struct DNode {
 	ElemType data;
-	struct DNode* prior, * next;
+	struct DNode* prior, * next, * fred;
 }DNode,*DLinklist;
 
 bool ListInsert(SqList& L, int i, ElemType e) {
@@ -739,3 +739,33 @@ void Free_Mini(LinkList& L) {
 	free(L);
 }//P38应用题19
 
+DLinklist Locate(DLinklist& L, ElemType x) {
+	DNode* p = L->next, * q;
+	while (p&&p->data!=x)
+	{
+		p = p->next;
+	}
+	if (!p)
+	{
+		return false;
+	}
+	else
+	{
+		p->fred++;
+		if (p->next!=NULL)
+		{
+			p->next->prior = p->prior;
+		}
+		p->prior->next = p->next;
+		q = q->prior;
+		while (q!=L&&q->fred<=p->fred)
+		{
+			q = q->prior;
+		}
+		p->next = q->next;
+		q->next->prior = p;
+		p->prior = q;
+		q->next = p;
+	}
+	return p;
+}////P38应用题20
