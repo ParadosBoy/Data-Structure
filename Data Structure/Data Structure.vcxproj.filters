@@ -15,26 +15,26 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LInear Table.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Queue.cpp">
-      <Filter>资源文件</Filter>
+    <ClCompile Include="Tree.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="String.cpp">
-      <Filter>资源文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Find.cpp">
-      <Filter>资源文件</Filter>
+    <ClCompile Include="Stack.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Sort.cpp">
-      <Filter>资源文件</Filter>
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LInear Table.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Find.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

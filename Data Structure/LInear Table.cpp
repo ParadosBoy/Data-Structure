@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include"Stack.cpp"
+#pragma once
 using namespace std;
 #define MaxSize 50
 typedef int ElemType;

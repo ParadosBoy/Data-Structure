@@ -1,6 +1,9 @@
+#pragma once
+#include"Linear Table.cpp"
 #include <iostream>
 #include<stdio.h>
 #include<string.h>
+
 using namespace std;
 typedef int ElemType;
 #define MaxSize 50
@@ -74,3 +77,26 @@ bool R_Or_F(char A[]) {
 	}
 	else return true;
 }//P66应用题3
+
+bool Is_Symmetry(LinkList L) {
+	LNode* p=L->next;
+	Sqstack S;
+	StackEmpty(S);
+	char x;
+	while (p!=NULL)
+	{
+		Push(S, p->data);
+		p = p->next;
+	}
+	p = L->next;
+	while (p!=NULL)
+	{
+		Pop(S, x);
+		if (p->data!=x)
+		{
+			return false;
+		}
+		p = p->next;
+	}
+	return true;
+}//P66应用题4
