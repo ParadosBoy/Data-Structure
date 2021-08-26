@@ -100,3 +100,47 @@ bool Is_Symmetry(LinkList L) {
 	}
 	return true;
 }//P66应用题4
+
+typedef struct {
+	ElemType data[MaxSize];
+	int i;
+	int top1, top2;
+}DoubleStack;
+
+bool Pop(DoubleStack S, ElemType i,ElemType x) {
+	if (i != 1 && i != 2)
+		return false;
+	if (S.top1+1==S.top2)
+		return false;
+	if (S.i == 1 && S.top1 + 1 != S.top2)
+	{
+		S.data[++S.top1] = x;
+	}
+	else if(S.i == 2 && S.top2 - 1 != S.top1)
+	{
+		S.data[--S.top2] = x;
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+				
+}
+
+bool Push(DoubleStack S, ElemType i, ElemType x) {
+	if (i != 1 && i != 2)
+		return false;
+	if (S.top1!=-1&&i==1)
+	{
+		S.data[S.top1--] = x;
+	}
+	else if (S.top2 != MaxSize && i == 2)
+	{
+		S.data[S.top2++] = x;
+	}
+	else
+	{
+		return false;
+	}
+}//P66应用题5
