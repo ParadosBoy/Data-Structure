@@ -142,6 +142,7 @@
     <ClCompile Include="Find.cpp" />
     <ClCompile Include="LInear Table.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Sort.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Tree.cpp" />

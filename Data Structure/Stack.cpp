@@ -53,3 +53,24 @@ typedef struct LinkNode {
 	ElemType data;
 	struct Linknode* next;
 }*LiStack;//链式存储结构
+
+bool R_Or_F(char A[]) {
+	ElemType i = 0, in = 0, out = 0, stack = 0;
+	for (i; i < 8; i++)
+	{
+		if (A[i]=='O')
+		{
+			stack--;
+		}
+		else
+		{
+			stack++;
+		}
+		if (stack < 0) return false;
+	}
+	if (stack != 0)
+	{
+		return false;
+	}
+	else return true;
+}//P66应用题3
