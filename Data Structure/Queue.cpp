@@ -1,6 +1,7 @@
 #include <iostream>
 #include<stdio.h>
 #include<string.h>
+#include"Stack.cpp"
 using namespace std;
 typedef int ElemType;
 #define MaxSize 50
@@ -123,3 +124,18 @@ bool DeQueue(SQueue& S, ElemType x) {
         return true;
     }
 }//P80应用题1
+
+void Reverse(SqQueue& Q) {
+    ElemType x = 0;
+    Sqstack S;
+    while (!isEmpty)
+    {
+        DeQueue(Q, x);
+        Push(S, x);
+    }
+    while (!StackEmpty)
+    {
+        Pop(S, x);
+        EnQueue(Q,x);
+    }
+}//P80应用题2
