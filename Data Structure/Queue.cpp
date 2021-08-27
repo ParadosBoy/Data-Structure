@@ -92,3 +92,34 @@ bool DeQueue(LinkQueue& Q, ElemType& x) {
     free(p);
     return true;
 }//出队
+
+typedef struct {
+    ElemType date[MaxSize];
+    int front, rear, tag;
+}SQueue;
+bool EnQueue(SQueue& S, ElemType x) {
+    if (S.front==S.rear&&S.tag==1)
+    {
+        return false;
+    }
+    else
+    {
+        S.date[S.rear] = x;
+        S.rear = (S.rear + 1) % MaxSize;
+        S.tag = 1;
+        return true;
+    }
+}
+bool DeQueue(SQueue& S, ElemType x) {
+    if (S.rear==S.front&&S.tag==0)
+    {
+        return false;
+    }
+    else
+    {
+        x = S.date[S.front];
+        S.front = (S.front + 1) % MaxSize;
+        S.tag = 0;
+        return true;
+    }
+}//P80应用题1
