@@ -189,3 +189,7 @@ bool Dequeue(Sqstack& S1, Sqstack& S2, ElemType x) {
 		Pop(S2, x);
 	}
 }//P80”¶”√Ã‚3
+
+void Match(char s) {
+
+}

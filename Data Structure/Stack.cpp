@@ -144,3 +144,58 @@ bool Push(DoubleStack S, ElemType i, ElemType x) {
 		return false;
 	}
 }//P66应用题5
+
+bool Match(char s[]) {
+	Sqstack S;
+	ElemType e;
+	for (int i = 0; s[i]!='\0'; i++)
+	{
+		if (s[i]=='(')
+		{
+			Push(S, s[i]);
+		}
+		else if (s[i] == ')')
+		{
+			GetTop(S, e);
+			if (e == '(')
+			{
+				Pop(S,e);
+				return true;
+			}
+			else return false;
+		}
+		else if (s[i] == '[')
+		{
+			Push(S, s[i]);
+		}
+		else if (s[i] == ']')
+		{
+			GetTop(S, e);
+			if (e == '[')
+			{
+				Pop(S, e);
+				return true;
+			}
+			else return false;
+		}
+		else if (s[i] == '{')
+		{
+			Push(S, s[i]);
+		}
+		else if (s[i] == '}')
+		{
+			GetTop(S, e);
+			if (e == '{')
+			{
+				Pop(S, e);
+				return true;
+			}
+			else return false;
+		}
+	}
+	if (StackEmpty(S))
+	{
+		return false;
+	}
+	else return true;
+}//P90应用题1
