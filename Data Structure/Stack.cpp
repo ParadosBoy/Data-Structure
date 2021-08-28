@@ -3,6 +3,7 @@
 #include <iostream>
 #include<stdio.h>
 #include<string.h>
+#include"Queue.cpp"
 
 using namespace std;
 typedef int ElemType;
@@ -199,3 +200,25 @@ bool Match(char s[]) {
 	}
 	else return true;
 }//P90应用题1
+
+void Exchang(char a[]) {
+	Sqstack S;
+	SqQueue Q;
+	ElemType e;
+	for (int i = 0; a[i]!='\0'; i++)
+	{
+		if (a[i] == 'H')
+		{
+			Push(S, a[i]);
+		}
+		else
+		{
+			EnQueue(Q, a[i]);
+		}	
+	}
+	while (!StackEmpty(S))
+	{
+		Pop(S, e);
+		EnQueue(Q, e);
+	}
+}//P90应用题2
