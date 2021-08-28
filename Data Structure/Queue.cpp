@@ -128,7 +128,7 @@ bool DeQueue(SQueue& S, ElemType x) {
 void Reverse(SqQueue& Q) {
 	ElemType x = 0;
 	Sqstack S;
-	while (!isEmpty)
+	while (!isEmpty(Q))
 	{
 		DeQueue(Q, x);
 		Push(S, x);
@@ -193,3 +193,40 @@ bool Dequeue(Sqstack& S1, Sqstack& S2, ElemType x) {
 void Match(char s) {
 
 }
+
+void CrossRiver(SqQueue& Q1, SqQueue& Q2) {
+	#define Max 10
+	ElemType i = 0;
+	ElemType e, j = 0;
+	while (j<Max)
+	{
+		if (i < 4 && !isEmpty(Q1))
+		{
+			i++;
+			j++;
+			DeQueue(Q1, e);
+		}
+		else if (i == 4 && !isEmpty(Q2))
+		{
+			i = 0;
+			j++;
+			DeQueue(Q2, e);
+		}
+		else if (isEmpty(Q1) && i < 4)
+		{
+			j++;
+			DeQueue(Q2, e);
+		}
+		else if (isEmpty(Q2) && !isEmpty(Q1))
+		{
+			while (!isEmpty(Q1))
+			{
+				DeQueue(Q1, e);
+			}	
+		}
+		else if (isEmpty(Q2) && isEmpty(Q1))
+		{
+			j = 11;
+		}
+	}
+}//P90Ó¦ÓÃÌâ4
