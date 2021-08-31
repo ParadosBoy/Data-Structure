@@ -89,7 +89,7 @@ void LevelOrder(BiTree T) {
 	InitQueue(Q);
 	BiTree p;
 	EnQueue(Q, T->data);
-	while (!IsEmpty)
+	while (!isEmpty(Q))
 	{
 		DeQueue(Q, p->data);
 		Visit(p);
@@ -104,3 +104,20 @@ void LevelOrder(BiTree T) {
 	}
 }//层序遍历
 
+int SearchParent(BiTree T[], int i, int j) {
+	if (T[i] != NULL && T[j] != NULL)
+	{
+		while (T[i]!=T[j])
+		{
+			if (i>j)
+			{
+				i = i / 2;
+			}
+			else
+			{
+				j = j / 2;
+			}
+		}
+	}
+	return T[i]->data;
+}//P127应用题5

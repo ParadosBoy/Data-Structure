@@ -12,6 +12,11 @@ typedef struct {
 	int TableLen;
 }SSTable;
 
+typedef struct {
+	int key;
+	int low, high;
+}indexElem;
+
 int Search_Seq(SSTable ST, ElemType key) {
 	ST.elem[0] = key;
 	int i;
@@ -37,3 +42,4 @@ int Biary_Search(SeList L, ElemType key) {
 		return -1;
 	}
 }//’€∞Î≤È’“
+
