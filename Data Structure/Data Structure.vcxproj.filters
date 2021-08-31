@@ -33,7 +33,7 @@
     <ClCompile Include="LInear Table.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Find.cpp">
+    <ClCompile Include="Search.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

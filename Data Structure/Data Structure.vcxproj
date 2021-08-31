@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Find.cpp" />
+    <ClCompile Include="Search.cpp" />
     <ClCompile Include="LInear Table.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Sort.cpp" />
