@@ -161,3 +161,33 @@ void HeapSort(ElemType A[], int len) {
 		HeadAdjust(A, 1, i - 1);
 	}
 }//∂—≈≈–Ú
+
+int n;
+ElemType* B = (ElemType*)malloc((n + 1) * sizeof(ElemType));
+void Merge(ElemType A[], ElemType low, ElemType mid, ElemType high) {
+	int j, i, k;
+	for ( k = low; k <=high; k++)
+	{
+		B[k] = A[k];
+	}
+	for (i = low, j = mid + 1, k = i; i <= mid && j <= high; k++)
+	{
+		if (B[i] <= B[j])
+			A[k] = B[i++];
+		else
+			A[k] = B[j++];
+	}
+	while (j<=mid)
+		A[k++] = B[i++];
+	while (i <= high)
+		A[k++] = B[j++];
+}
+void MergeSort(ElemType A[], ElemType low, ElemType high) {
+	if (low<high)
+	{
+		int mid = (low + high) / 2;
+		MergeSort(A, low, mid);
+		MergeSort(A, mid + 1, high);
+		Merge(A, low, mid, high);
+	}
+}//πÈ≤¢≈≈–Ú
