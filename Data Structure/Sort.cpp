@@ -67,3 +67,23 @@ int Partition(ElemType A[], int low, int high) {
 	A[low] = pivot;
 	return low;
 }//¿ìËÙÅÅÐò
+
+void ShellSort(ElemType A[], int n) {
+	int j, i;
+	for (int dk = 0; dk >=1; dk/=2)
+	{
+		for (int i = dk + 1; i <= n; i++)
+		{
+			if (A[i] < A[i - dk])
+			{
+				A[0] = A[i];
+				for (int j = 0; j >0&&A[0]<A[j] ; j-=dk)
+				{
+					A[j + dk] = A[j];
+				}
+				A[j + dk] = A[0];
+			}
+
+		}
+	}
+}//Ï£¶ûÅÅÐò
