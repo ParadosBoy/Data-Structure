@@ -108,3 +108,22 @@ void BubbleSort(ElemType A[], int n) {
 		}
 	}
 }//√∞≈›≈≈–Ú
+
+void SelectSort(ElemType A[], int n) {
+	ElemType i, j,min;
+	for (i = 0; i <n-1; i++)
+	{
+		min = i;
+		for (j = i + 1; i < n; i++)
+		{
+			if (A[j]<A[min])
+			{
+				min = j;
+			}
+		}
+		if (min!=i)
+		{
+			swap(A[i], A[min]);
+		}
+	}
+}//ºÚµ•—°‘Ò≈≈–Ú
